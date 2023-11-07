@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#using-theach-->
+<p th:text="${name}">Hello James</p>
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>EMAIL</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.name}">James Michael</td>
+        <td th:text="${user.email}">james@gmail.con</td>
+    </tr>
+</table>
+</body>
+</html>
