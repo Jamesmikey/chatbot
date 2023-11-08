@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link th:src="@{'style.css'}" src=""></link>
+    <link th:src="@{style.css}">
 </head>
 <body>
 
 <!--https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#using-theach-->
+<p>Encoded Password: <span th:text="${encodedPassword}"></span></p>
 <p th:text="${name}">Hello James</p>
 <table>
     <tr>
