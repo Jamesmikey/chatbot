@@ -1,6 +1,7 @@
 package tz.ac.udsm.chatBot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tz.ac.udsm.chatBot.models.User;
 import tz.ac.udsm.chatBot.services.UserService;
@@ -32,6 +33,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
+//    @PreAuthorize("hasRole('ADMIN')")
     public String edit( @PathVariable Long id,@RequestBody User newUser) throws OperationNotSupportedException {
 
         userService.edit(id,newUser);

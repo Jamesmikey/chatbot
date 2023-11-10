@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/assets/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<p>Register Page</p>
+<form th:object="${user}" class="bg-blue" method="POST" th:action="@{/register}">
+    <input placeholder="Name" th:field="*{name}" type="text"/>
+    <input placeholder="Email" th:field="*{email}" type="text"/>
+    <input placeholder="password" th:field="*{password}" type="password"/>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

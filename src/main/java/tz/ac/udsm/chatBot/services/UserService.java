@@ -1,6 +1,7 @@
 package tz.ac.udsm.chatBot.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tz.ac.udsm.chatBot.models.Address;
 import tz.ac.udsm.chatBot.models.Message;
@@ -17,6 +18,8 @@ import java.util.*;
 @Service
 public class UserService {
 
+    @Autowired
+    private PasswordEncoder encoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -48,6 +51,8 @@ public class UserService {
             Role existRole=roleRepository.findById(role.getId()).orElseThrow(() -> new OperationNotSupportedException("Role not found"));
             databaseRoles.add(existRole);
         }
+
+        newUser.setPassword(encoder.encode(newUser.getPassword()));
 
         newUser.setRoles(databaseRoles);
 

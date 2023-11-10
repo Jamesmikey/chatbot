@@ -24,15 +24,14 @@ public class WebController {
     private UserService userService;
 
 
-    private final PasswordEncoder passwordEncoder;
+
+    private final PasswordEncoder encoder;
 
     public WebController(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-
-        //        Encoding plaintext to hashed text
-        String encodedText=passwordEncoder.encode("james12@12");
-
-        System.out.println("Encoded Password (james12) :"+encodedText);
+        this.encoder=passwordEncoder;
+        String plainText="james@12";
+        String encodedText=encoder.encode(plainText);
+        System.out.println("Encoded text: "+encodedText);
     }
 
     @GetMapping

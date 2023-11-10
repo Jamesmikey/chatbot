@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -37,7 +39,7 @@ public class User {
 //    @OneToMany(mappedBy = "user")
 //    private List<Message> messages;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "roles_user",joinColumns = @JoinColumn(name = "user_ref_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "reoles_ref_id"))
-    private Set<Role> roles;
+    private Set<Role> roles=new HashSet<>();
 }
